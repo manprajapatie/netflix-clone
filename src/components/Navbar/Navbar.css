@@ -1,3 +1,11 @@
+/* --------------------- media query for responsive view ------------------ */
+
+@media screen and (max-width: 850px) {
+  .navbar .navbar-left ul {
+    display: none;
+  }
+}
+
 .navbar{
     width: 100%;
     padding: 20px 6%;
@@ -31,6 +39,8 @@
 .navbar-left ul li{
     cursor: pointer;
 }
+
+
 
 /* --------------------- navbar-right ------------------ */
 

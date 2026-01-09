@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import search_Icon from '../../assets/search_icon.png'
-import bell_Icon from '../../assets/bell_icon.png'
 import profile_img from '../../assets/profile_img.png'
 import caret_icon from '../../assets/caret_icon.png'
 
@@ -30,8 +29,8 @@ const Navbar = () => {
       {/* -------------- Navbar Left Side -------------- */ }
       <div className="navbar-left">
       <img src = {logo} alt="" />
-      <ul>
-        <li>Home</li>
+      <ul >
+        <li >Home</li>
         <li>TV Shows</li>
         <li>Movies</li>
         <li>My List</li>
@@ -45,7 +44,7 @@ const Navbar = () => {
         <img src={search_Icon} alt="" className='icons' />
         <p>children</p>
 
-        <img src={bell_Icon} alt="" className='icons' />
+        
 
         <div className="navbar-profile">
           <img src={profile_img} alt="" className='profile' />
