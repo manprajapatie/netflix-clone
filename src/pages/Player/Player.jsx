@@ -10,13 +10,13 @@ const Player = () => {
   {/* navigate hook is use for backward and forward like back and forward */ }
   const navigate = useNavigate();
 
-console.log("Id" + id)
+  console.log("Id" + id)
 
   const [apiData, setApiData] = useState({
     name: "",
     key: "",
     published_at: "",
-    typeof: ""
+    type: ""
   })
 
   const options = {
@@ -30,9 +30,13 @@ console.log("Id" + id)
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
       .then(res => res.json())
-      .then(res => setApiData(res.results[0]))
+      .then(res => {
+        if (res.results && res.results.length > 0) {
+          setApiData(res.results[0]);
+        }
+      })
       .catch(err => console.error(err));
-  }, [])
+  }, [id])
 
 
   return (
@@ -42,9 +46,18 @@ console.log("Id" + id)
       <img src={back_arrow_icon} alt="" onClick={() => {
         navigate(-1)
       }} />
-      <iframe width='90%' height='90%' src={`https:/www.youtube.com/embed/${apiData.key}`} title='trailer' frameborder="0"></iframe>
+      {apiData.key && (
+        <iframe
+          width="90%"
+          height="90%"
+          src={`https://www.youtube.com/embed/${apiData.key}`}
+          title="trailer"
+          frameBorder="0"
+          allowFullScreen
+        />
+      )}
       <div className="player-info">
-        <p>{apiData.published_at.slice(0, 10)}</p>
+        <p>{apiData.published_at?.slice(0, 10)}</p>
         <p>{apiData.name}</p>
         <p>{apiData.type}</p>
       </div>

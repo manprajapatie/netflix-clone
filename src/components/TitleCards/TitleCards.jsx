@@ -6,13 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies } from '../../feature/movie/movieSlice';
 
 
-
-
-
 const TitleCards = ({ title, category }) => {
 
   const dispatch = useDispatch();
-  const { list, isLoading } = useSelector(state => state.movies);
+  const movies = useSelector(state => state.movies[category] || []);
+  const isLoading = useSelector(state => state.movies.isLoading);
 
   const cardsRef = useRef();
 
@@ -22,13 +20,15 @@ const TitleCards = ({ title, category }) => {
   };
 
   useEffect(() => {
-    dispatch(fetchMovies(category));
-    cardsRef.current.addEventListener('wheel', handleWheel);
+     if (movies.length === 0) {
+      dispatch(fetchMovies(category));
+    }
 
+    cardsRef.current.addEventListener('wheel', handleWheel);
     return () => {
-      cardsRef.current.removeEventListener('wheel', handleWheel);
+      //cardsRef.current.removeEventListener('wheel', handleWheel);
     };
-  }, [dispatch, category]);
+  }, [dispatch, category, movies.length]);
 
   return (
     <div className='title-cards'>
@@ -37,7 +37,7 @@ const TitleCards = ({ title, category }) => {
       <div className="card-list" ref={cardsRef}>
         {isLoading && <p>Loading...</p>}
 
-        {list.map((card) => (
+        {movies.map((card) => (
           <Link to={`/player/${card.id}`} className="card" key={card.id}>
             <img
               src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`}

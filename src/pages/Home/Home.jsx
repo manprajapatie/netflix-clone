@@ -38,7 +38,7 @@ const Home = () => {
             <button className='btn' onClick={scrollToMovieSection}><img src={play_icon} alt="" />Play</button>
             <button className='btn dark-btn' onClick={scrollToFooter} ><img src={info_icon} alt="" />More Info</button>
           </div>
-          <TitleCards />
+          <TitleCards category="now_playing" />
         </div>
       </div>
       <div className="more-cards" ref={MovieRef}>

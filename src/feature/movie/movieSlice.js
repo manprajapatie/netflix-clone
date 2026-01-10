@@ -5,7 +5,7 @@ const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer YOUR_TMDB_TOKEN'
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOTQyMzE2MDM4YWM0MzMyY2Y0OTRkNjI5N2JhOTA2MyIsIm5iZiI6MTczMzMyOTM2MS4wMTQwMDAyLCJzdWIiOiI2NzUwODFkMTVmNzQ0YmYxNzQxZTEwNTkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Dhxl2xRg08LeNCNEG_ToACsJHAzrISrOcnegRyQ6_UQ'
   }
 };
 
@@ -18,14 +18,20 @@ export const fetchMovies = createAsyncThunk(
       options
     );
     const data = await response.json();
-    return data.results;
+    return {
+      category,
+      results: data.results,
+    };
   }
 );
 
 const movieSlice = createSlice({
   name: 'movies',
   initialState: {
-    list: [],
+    now_playing: [],
+    top_rated: [],
+    popular: [],
+    upcoming: [],
     isLoading: false,
     isError: false,
   },
@@ -36,7 +42,7 @@ const movieSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
-        state.list = action.payload;
+         state[action.payload.category] = action.payload.results;
         state.isLoading = false;
       })
       .addCase(fetchMovies.rejected, (state) => {
