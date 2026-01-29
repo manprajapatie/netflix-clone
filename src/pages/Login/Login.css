@@ -1,0 +1,125 @@
+/* Full page background */
+.login-container {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)),
+        url("/public/background_banner.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Login card */
+.login-box {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 60px 40px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+/* Netflix text logo */
+.login-logo {
+    color: #e50914;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Sign In title */
+.login-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Error message */
+.login-error {
+    background: #e50914;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Form layout */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Inputs */
+.login-input {
+    background: #333;
+    border: none;
+    padding: 14px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.login-input:focus {
+    outline: none;
+    background: #444;
+}
+
+/* Sign in button */
+.login-button {
+    margin-top: 10px;
+    padding: 14px;
+    background: #e50914;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background: #f6121d;
+}
+
+.login-button:disabled {
+    background: #a70b12;
+    cursor: not-allowed;
+}
+
+/* Remember / help */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
+.help-link {
+    cursor: pointer;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+}
+
+/* Signup text */
+.signup-text {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.signup-text span {
+    color: #fff;
+    cursor: pointer;
+}
+
+.signup-text span:hover {
+    text-decoration: underline;
+}

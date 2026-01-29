@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../feature/auth/authSlice";
 import { useNavigate } from "react-router-dom";
+import "./Login.css"
 
 
 const Login = () => {
@@ -31,25 +32,25 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center">
-      <div className="w-full max-w-md bg-black bg-opacity-80 p-8 rounded-md">
+    <div className="login-container">
+      <div className="login-box">
 
         {/* Netflix Text Logo */}
-        <h1 className="text-red-600 text-3xl font-bold mb-8">
+        <h1 className="login-logo">
           NETFLIX
         </h1>
 
-        <h2 className="text-white text-2xl font-semibold mb-6">
+        <h2 className="login-title">
           Sign In
         </h2>
 
         {error && (
-          <div className="bg-red-600 text-white p-3 rounded mb-4 text-sm">
+          <div className="login-error">
             {error}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="login-form">
           <input
             type="text"
             name="username"
@@ -57,7 +58,7 @@ const Login = () => {
             value={form.username}
             onChange={handleChange}
             required
-            className="w-full p-4 bg-gray-800 text-white rounded outline-none focus:bg-gray-700"
+            className="login-input"
           />
 
           <input
@@ -67,29 +68,29 @@ const Login = () => {
             value={form.password}
             onChange={handleChange}
             required
-            className="w-full p-4 bg-gray-800 text-white rounded outline-none focus:bg-gray-700"
+            className="login-input"
           />
 
           <button
             type="submit"
             // disabled={loading}
-            className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded font-semibold flex justify-center items-center"
+            className="login-button"
           >Sign In
             {/* {loading ? <Loader size={18} /> : "Sign In"} */}
           </button>
         </form>
 
-        <div className="flex justify-between text-gray-400 text-sm mt-4">
-          <label className="flex items-center gap-1">
+        <div className="login-options">
+          <label>
             <input type="checkbox" />
             Remember me
           </label>
-          <span className="hover:underline cursor-pointer">
+          <span className="help-link">
             Need help?
           </span>
         </div>
 
-        <p className="text-gray-400 text-sm mt-6">
+        <p className="signup-text">
           New to Netflix?{" "}
           <span className="text-white hover:underline cursor-pointer">
             Sign up now
