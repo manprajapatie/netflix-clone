@@ -23,7 +23,10 @@ const Home = () => {
 
   return (
     <div className='Home'>
+      {/*------------------ Navbar ------------------*/}
       <Navbar />
+
+      {/*------------------ Hero ------------------*/}
       <div className="hero">
         <img src={hero_banner} alt="" className='banner-img' />
         <div className="hero-caption">

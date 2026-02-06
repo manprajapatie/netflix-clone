@@ -50,8 +50,8 @@ const Navbar = () => {
 
       {/* -------------- Navbar Right Side -------------- */}
       <div className="navbar-right">
-        <img src={search_Icon} alt="" className='icons' />
-        <p>children</p>
+        {/* <img src={search_Icon} alt="" className='icons' />
+        <p>children</p> */}
 
 
 

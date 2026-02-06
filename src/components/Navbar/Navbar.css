@@ -99,3 +99,40 @@
 .nav-dark{
     background: #141414;
 }
+
+.dropdown {
+  /* Reset default button styles */
+  background: transparent;
+  border: none;
+  width: 100%;
+  padding: 10px 0;
+  cursor: pointer;
+  outline: none;
+  
+  /* Text styling */
+  color: white;
+  font-size: 13px;
+  text-align: center;
+}
+
+.dropdown p {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* The "Netflix" Hover Effect */
+.dropdown:hover p {
+  text-decoration: underline;
+}
+
+/* Optional: Subtle background change on hover */
+.dropdown:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* media quary for mobile responsivenes*/
+@media screen and (max-width: 410px) {
+  .navbar .navbar-left ul {
+    display: none;
+  }
+}
