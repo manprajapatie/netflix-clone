@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './player.css'
 import back_arrow_icon from '../../assets/back_arrow_icon.png'
 import { useNavigate, useParams } from 'react-router-dom'
+//take authorization token from .env file
+const TMDB_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
+const BASE_URL = import.meta.env.VITE_TMDB_BASE_URL;
 
 const Player = () => {
 
@@ -23,12 +26,12 @@ const Player = () => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOTQyMzE2MDM4YWM0MzMyY2Y0OTRkNjI5N2JhOTA2MyIsIm5iZiI6MTczMzMyOTM2MS4wMTQwMDAyLCJzdWIiOiI2NzUwODFkMTVmNzQ0YmYxNzQxZTEwNTkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Dhxl2xRg08LeNCNEG_ToACsJHAzrISrOcnegRyQ6_UQ'
+      Authorization: `Bearer ${TMDB_TOKEN}`
     }
   };
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
+    fetch(`${BASE_URL}movie/${id}/videos?language=en-US`, options)
       .then(res => res.json())
       .then(res => {
         if (res.results && res.results.length > 0) {
