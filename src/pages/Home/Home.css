@@ -1,12 +1,7 @@
 
 .hero{
     position: relative;
-    border: 2px solid red;
-    /* height: 100vh; */
-    /* border: 2px solid red; */
-    /* background-position: center;
-    background-size: cover; 
-    overflow: hidden; */
+    
 }
 
 .banner-img{
@@ -16,9 +11,6 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
 }
 
-/* .hero-caption img{ 
-    width: 50px;
-} */
 
 .hero-caption{
     position: absolute;

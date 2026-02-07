@@ -1,11 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+//take authorization token from .env file
+const TMDB_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
+const BASE_URL = import.meta.env.VITE_TMDB_BASE_URL;
+
 // Auth Key
 const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOTQyMzE2MDM4YWM0MzMyY2Y0OTRkNjI5N2JhOTA2MyIsIm5iZiI6MTczMzMyOTM2MS4wMTQwMDAyLCJzdWIiOiI2NzUwODFkMTVmNzQ0YmYxNzQxZTEwNTkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Dhxl2xRg08LeNCNEG_ToACsJHAzrISrOcnegRyQ6_UQ'
+    Authorization: `Bearer ${TMDB_TOKEN}`
   }
 };
 
@@ -14,9 +18,12 @@ export const fetchMovies = createAsyncThunk(
   'movies/fetchMovies',
   async (category = "now_playing") => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`,
+      `${BASE_URL}movie/${category}?language=en-US&page=1`,
       options
     );
+     if (!response.ok) {
+      throw new Error("Failed to fetch movies");
+    }
     const data = await response.json();
     return {
       category,
