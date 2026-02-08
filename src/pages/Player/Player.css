@@ -1,13 +1,24 @@
-.player{
-    height: 100vh;
+.player {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    background-color: #0f172a;
+    /* Deep Navy/Dark background */
 }
 
-.player img{
+.player-yt {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    object-fit:cover;
+   
+    justify-content: center;
+    align-items: center;
+}
+
+.player img {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -15,14 +26,114 @@
     cursor: pointer;
 }
 
-.player iframe{
-    border-radius: 10px;
+.player iframe {
+    border-radius: 30px;
 
 }
-.player-info{
+
+.move-detail-fullwidth {
+    width: 100%;
+    background-color: #0f172a;
+    /* Deep Navy/Dark background */
+    border-bottom: 1px solid #1e293b;
+    padding: 2rem 0;
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+}
+
+.move-content-wrapper {
+    max-width: 1200px;
+    /* Limits content width while container stays full-width */
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Responsive wrap for smaller screens */
+    gap: 2rem;
+}
+
+/* Badge above the title */
+.badge-status {
+    font-size: 0.65rem;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.move-title-large {
+    margin: 0.5rem 0 0 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.move-stats-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    
+    gap: 3rem;
+}
+
+.stat-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.text-highlight {
+    color: #38bdf8;
+    /* Bright sky blue for dates */
+}
+
+/* Category Badge */
+.tag-style {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 4px 12px;
+    border-radius: 6px;
+    color: #e2e8f0;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: #334155;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 500px) {
+    .move-title-large {
+        font-size: 2rem;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .move-title-large {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stat-divider {
+        display: none;
+    }
 }
