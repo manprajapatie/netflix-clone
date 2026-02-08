@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     background-color: #0f172a;
-    /* Deep Navy/Dark background */
+    
 }
 
 .player-yt {
@@ -34,7 +34,6 @@
 .move-detail-fullwidth {
     width: 100%;
     background-color: #0f172a;
-    /* Deep Navy/Dark background */
     border-bottom: 1px solid #1e293b;
     padding: 2rem 0;
     color: #f8fafc;
@@ -43,14 +42,12 @@
 
 .move-content-wrapper {
     max-width: 1200px;
-    /* Limits content width while container stays full-width */
-    margin: 0 auto;
+      margin: 0 auto;
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    /* Responsive wrap for smaller screens */
     gap: 2rem;
 }
 
@@ -128,7 +125,7 @@
 }
 
 @media (max-width: 768px) {
-    .move-title-large {
+    .move-content-wrapper {
         flex-direction: column;
         align-items: flex-start;
     }
